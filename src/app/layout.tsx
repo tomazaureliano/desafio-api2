@@ -1,7 +1,7 @@
 import './globals.css';
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import MovieVitrine from '@/components/MovieVitrine';
-import Footer from '@/components/footer';
+import Footer from '@/components/Footer';
 import { Oxygen } from 'next/font/google';
 
 const oxygen = Oxygen({ 
