@@ -4,7 +4,7 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 async function getMovies() {
   try {
-    const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=pt-BR`);
+
     
     // Mapeando os dados para sua vitrine
     interface Movie {
