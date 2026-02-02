@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import MovieVitrine from '@/components/MovieVitrine'
 import Hero from '@/components/Hero'
-import Footer from '@/components/Footer'
+
 
 export default function Home({ 
   searchParams 
