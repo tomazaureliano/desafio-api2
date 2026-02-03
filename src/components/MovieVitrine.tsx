@@ -52,7 +52,6 @@ console.log("DEBUG IMPORTS:", { SearchBar, Button, MovieCard });
 export default async function MovieVitrine({ page = '1', genre = '', search = '' }) {
   const currentPage = parseInt(page);
   const { results: movies, totalPages } = await getMovies(currentPage, genre, search);
-  const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
   return (
     <section id="vitrine" className="py-20 bg-black px-6 scroll-mt-20">

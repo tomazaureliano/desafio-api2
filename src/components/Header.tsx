@@ -1,5 +1,4 @@
 import Link from 'next/link'; // Importação essencial
-import { Oxygen } from 'next/font/google';
 export default function Header() {
   return (
     <header className="w-full h-[100px] px-10 flex items-center justify-between bg-black/65 backdrop-blur-md shadow-lg fixed top-0 z-50">
@@ -12,7 +11,7 @@ export default function Header() {
           className="w-[56px] h-[56px] object-contain" 
         />
         
-        <h1 className="text-white text-3xl font-light tracking-tight font-oxygen">
+        <h1 className="text-white text-3xl font-bold tracking-tight font-oxygen">
           MovieNight
         </h1>
       </div>
