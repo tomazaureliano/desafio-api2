@@ -1,54 +1,53 @@
-'use client'
-
-import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
+// src/app/not-found.tsx
+import Link from 'next/link';
+import React from 'react';
 
 export default function NotFound() {
-    return (
-        <div className='w-full h-screen items-center justify-center flex flex-col'>
-            <div className='w-full h-screen flex flex-col md:flex-row items-center justify-center gap-8 md:gap-8 lg:gap-24 px-10 md:px-0'>
-                <div>
-                    <Image
-                        priority
-                        loading='eager'
-                        quality={100}
-                        src='/images/seed-a-mascot.svg'
-                        width={200}
-                        height={350}
-                        alt='Seed a Bit - mascote'
-                        style={{ width: 'auto', height: 'auto' }}
-                    />
-                </div>
-                <div className='flex flex-col items-center justify-center gap-20 md:gap-28'>
-                    <div className='flex flex-wrap flex-col gap-10 md:gap-12 justify-center'>
-                        <div className='flex flex-col justify-center gap-2'>
-                            <h1 className='text-4xl md:text-5xl text-center md:text-left'>Página não encontrada!</h1>
-                            <p className='text-sm md:text-base font-thin dark:text-slate-400 text-slate-800'>Erro 404 - Página não encontrada</p>
-                        </div>
-                        <p className='text-wrap max-w-[29rem]'>Desculpe! O conteúdo que você procura pode ter sido removido, mas novas oportunidades sempre brotam. Que tal explorar nosso site e ver o que pode florescer para você?</p>
-                    </div>
-                    <div className='flex flex-col md:flex-row gap-7 w-full items-center justify-center'>
-                        <button className='w-60 h-10 inline-flex items-center justify-center whitespace-nowrap bg-blue-700/70 hover:bg-blue-700/85 rounded-md font-medium'>
-                            <Link className='w-fit' href="/">Voltar para a página principal</Link>
-                        </button>
-                        <button className='w-60 h-10 inline-flex items-center justify-center whitespace-nowrap bg-blue-700/70 hover:bg-blue-700/85 rounded-md font-medium'>
-                            <Link
-                                className='w-fit'
-                                href="https://seedabit.org.br"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Conhecer a Seed
-                            </Link>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <footer className='absolute w-full bottom-4 flex flex-col space-y-2 items-center'>
-                <hr className='w-64' />
-                <p className='text-sm'>© 2025 <a className='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' href='https://seedabit.org.br' target='_blank' rel='noopener noreferrer'>Seed a Bit</a>. All rights reserved.</p>
-            </footer>
+  return (
+    <main 
+      className="relative w-full min-h-screen flex items-center justify-start overflow-hidden bg-cover bg-center"
+      style={{ 
+        backgroundImage: `
+          linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(9, 9, 11, 1) 100%), 
+          linear-gradient(270deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 59%), 
+          url('/images/imgHero.png')
+        ` 
+      }}
+    >
+      <div className="w-full max-w-7xl mx-auto px-8 md:px-16 z-10">
+        <div className="flex flex-col items-start gap-6 md:gap-8">
+          
+          {/* Badge de Erro */}
+          <div className="px-4 py-1.5 rounded-full border border-red-500/40 bg-red-500/10 backdrop-blur-md text-red-500 text-xs font-bold uppercase tracking-widest">
+            Erro 404 • Página não encontrada
+          </div>
+
+          {/* Título Estilo Hero */}
+          <h1 className="text-white text-7xl md:text-[10rem] font-bold font-oxygen leading-none tracking-tighter [text-shadow:_0px_4px_10px_rgb(0_0_0_/_0.8)]">
+            Corte!
+          </h1>
+
+          {/* Mensagem Temática */}
+          <p className="text-white/80 text-2xl md:text-3xl font-medium font-oxygen max-w-xl leading-snug">
+            Essa cena não está no nosso roteiro.<br/>
+            O link que você seguiu pode estar quebrado<br/>
+            ou a página foi removida da edição final.
+          </p>
+
+          {/* Botão de Retorno seguindo o padrão Figma */}
+          <div className="pt-6">
+            <Link 
+              href="/" 
+              className="inline-block px-12 py-4 rounded-[56px] border-4 border-white bg-transparent hover:bg-white hover:text-black transition-all duration-500 text-white text-2xl font-bold font-oxygen shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+            >
+              Voltar ao Início
+            </Link>
+          </div>
         </div>
-    )
+      </div>
+
+      {/* Overlay de Vinheta */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/20 pointer-events-none" />
+    </main>
+  );
 }
