@@ -32,6 +32,9 @@ Executar o Servidor de Desenvolvimento:
 
 Acesse o projeto em http://localhost:3000.
 
+> [!NOTE]
+> Alternativamente, pode se acessar o site no deploy do Vercel: [MovieNight](https://desafio-api2-9m6xlooul-tomaz-aurelianos-projects.vercel.app/)
+
 ## API Utilizada
 
 O projeto consome dados da TMDB API (The Movie Database), utilizando os seguintes recursos:
