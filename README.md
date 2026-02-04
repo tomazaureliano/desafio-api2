@@ -1,75 +1,52 @@
 # MovieNight : Descubra o que assistir de forma fácil e rápida!
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/seedabit/nextjs-react-typescript/blob/main/README.md)
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/seedabit/nextjs-react-typescript/blob/main/README.pt-br.md)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app@12`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Descrição
 
-## Index
+O MovieNight é uma plataforma moderna de exploração cinematográfica que oferece aos usuários um catálogo atualizado e detalhado sobre os filmes de maior sucesso. 
 
-- [TechStack](#techstack)
-- [Getting Started](#getting-started)
-    - [API Routes](#api-routes)
-- [Learn More](#learn-more)
-    - [Next.js](#nextjs)
-    - [React](#react)
-    - [TailwindCSS](#tailwindcss)
-    - [Eslint](#eslint)
-    - [Husky](#husky)
-- [On commits, branches, and PRs](#on-commits-branches-and-prs)
-- [On Deploying](#on-deploying)
-- [Code Rules and Guidelines](#code-rules-and-guidelines)
-    - [Directory Structure](#directory-structure)
-    - [Naming Conventions](#naming-conventions)
-    - [Code Details](#code-details)
-    - [Styling Conventions](#styling-conventions)
-    - [Extra](#extra)
-- [Library Recommendations](#library-recommendations)
-- [VSCode Extensions](#vscode-extensions)
-- [License](#license)
+## Funcionamento
 
-## TechStack
+O projeto é um Web App com Landing Page, vitrine de contéudo com filtros de gênero integrada com API, e rotas dinâmicas com páginas individuais de filmes.
 
-- Next.js: 15.1.7
-- React: ^19
-- TypeScript: ^5
-- ESLint: ^9
-- TailwindCSS: ^3.4.17
-- Husky: ^9.1.7
+## Instruções de Execução
 
-## Getting Started
+Para rodar o projeto localmente, siga os passos abaixo:
 
-Firstly, clone the repository:
+Clonar o Repositório:
 
-```bash
-git clone https://github.com/seedabit/nextjs-react-typescript.git
-```
+Bash
+git clone https://github.com/tomazaureliano/desafio-api2.git
+cd movie-night
 
-Then, navigate to the project directory:
+Instalar Dependências:
 
-```bash
-cd nextjs-react-typescript
-```
-
-Now, install the necessary dependencies:
-
-```bash
+Bash
 npm install
-```
 
-Furthermore, run the development server:
+Configurar Variáveis de Ambiente: Altere o nome de .env.example para .env.local e insira sua chave de API
 
-```bash
+Code snippet
+NEXT_PUBLIC_TMDB_API_KEY=sua_chave_aqui
+
+Executar o Servidor de Desenvolvimento:
+
+Bash
 npm run dev
-```
+Acesse o projeto em http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API Utilizada
 
-### API Routes
+O projeto consome dados da TMDB API (The Movie Database), utilizando os seguintes recursos:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/api-route-name](http://localhost:3000/api/hello). This endpoint can be edited in `src/app/api/route.ts`.
+GET /movie/popular: Para alimentar a vitrine inicial.
 
-The `src/app/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+GET /search/movie: Para a funcionalidade de busca por texto.
+
+GET /discover/movie: Para a filtragem refinada por gêneros.
+
+GET /movie/{id}: Para a recuperação de metadados na página de detalhes.
+
 
 ## Learn More
 
