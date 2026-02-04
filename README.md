@@ -8,15 +8,14 @@ O MovieNight é uma plataforma moderna de exploração cinematográfica que ofer
 
 ## Funcionamento
 
-O projeto é um Web App com Landing Page, vitrine de contéudo com filtros de gênero integrada com API, e rotas dinâmicas com páginas individuais de filmes.
+O projeto é um Web App com Landing Page, vitrine de contéudo com filtros de gênero e search bar integrada com API, e rotas dinâmicas com páginas individuais de filmes.
 
 ## Instruções de Execução
 
-Para rodar o projeto localmente, siga os passos abaixo:
+Para rodar o projeto localmente, siga os passos abaixo no terminal:
 
 Clonar o Repositório:
 
-Bash
 `git clone [https://github.com/tomazaureliano/desafio-api2.git](https://github.com/tomazaureliano/desafio-api2/tree/master)`
 
 Instalar Dependências:
