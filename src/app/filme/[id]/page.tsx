@@ -1,10 +1,18 @@
+// src/app/filme/[id]/page.tsx
 import React from 'react';
-import Link from 'next/link';
-import { Button } from "@/components/ui/Button"; 
+import BackButton from "@/components/ui/BackButton"; // Componente que criaremos abaixo
+
+// Função para formatar minutos em "Xh Ymin"
+const formatRuntime = (minutes: number) => {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return `${hours}h ${mins}min`;
+};
 
 async function getMovieDetails(id: string) {
+  // O 'append_to_response=credits' traz os atores na mesma chamada
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=pt-BR`,
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=pt-BR&append_to_response=credits`,
     { next: { revalidate: 3600 } }
   );
   if (!res.ok) return null;
@@ -15,14 +23,16 @@ export default async function MoviePage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
   const movie = await getMovieDetails(id);
 
-  if (!movie) return <div className="text-white p-20">Filme não encontrado.</div>;
+  if (!movie) return <div className="text-white p-20 font-oxygen">Filme não encontrado.</div>;
 
   const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+  const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
+  const mainCast = movie.credits?.cast?.slice(0, 5).map((a: any) => a.name).join(', ');
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white font-oxygen">
       <section 
-        className="relative w-full min-h-[70vh] flex items-end pb-12 bg-cover bg-center"
+        className="relative w-full min-h-[85vh] flex items-end pb-12 bg-cover bg-center"
         style={{ 
           backgroundImage: `
             linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(9, 9, 11, 1) 100%), 
@@ -32,19 +42,30 @@ export default async function MoviePage({ params }: { params: Promise<{ id: stri
         }}
       >
         <div className="max-w-7xl mx-auto px-8 md:px-16 w-full z-10">
-          <h1 className="text-5xl md:text-8xl font-bold mb-4 [text-shadow:_0px_4px_5px_rgb(0_0_0_/_0.8)]">
+          <div className="flex items-center gap-4 mb-4">
+            <span className="px-3 py-1 rounded bg-red-600 text-white font-bold text-sm">
+              {releaseYear}
+            </span>
+            <span className="text-zinc-300 font-medium">
+              {formatRuntime(movie.runtime)}
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-8xl font-bold mb-6 [text-shadow:_0px_4px_10px_rgb(0_0_0_/_0.8)]">
             {movie.title}
           </h1>
-          <p className="max-w-2xl text-xl text-zinc-300 mb-10 leading-relaxed">
+
+          {mainCast && (
+            <p className="text-zinc-400 text-lg mb-6 max-w-2xl">
+              <span className="text-white font-semibold">Elenco:</span> {mainCast}
+            </p>
+          )}
+
+          <p className="max-w-3xl text-xl text-zinc-300 mb-10 leading-relaxed">
             {movie.overview}
           </p>
           
-          <Link href="/#vitrine">
-          
-            <Button variant="outline" size="lg" className="rounded-[56px] border-2">
-              ← Voltar ao Catálogo
-            </Button>
-          </Link>
+          <BackButton />
         </div>
       </section>
     </main>
