@@ -27,7 +27,7 @@ export default function Hero() {
           <p className="text-white/90 text-2xl md:text-3xl font-medium font-oxygen max-w-2xl leading-snug">
             Um catálogo atualizado e preciso sobre<br className="hidden md:block"/>
             os filmes que fazem sucesso. Descubra<br className="hidden md:block"/>
-            o melhor filme para a sua noite.
+             o melhor filme para a sua noite.
           </p>
 
      
