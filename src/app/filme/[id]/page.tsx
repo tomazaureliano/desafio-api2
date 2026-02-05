@@ -1,4 +1,4 @@
-// src/app/filme/[id]/page.tsx
+
 import React from 'react';
 import BackButton from "@/components/ui/BackButton";
 
